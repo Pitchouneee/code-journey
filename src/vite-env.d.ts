@@ -1,9 +1,11 @@
 /// <reference types="vite/client" />
 
-export {};
+export { };
 
 declare global {
   interface Window {
-    hljs: any;
+    hljs: {
+      highlightElement: (el: HTMLElement) => void;
+    };
   }
 }

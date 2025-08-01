@@ -6,6 +6,7 @@ import { getLanguageExtension } from '../constants/monacoLanguageExtensions';
 import { getLanguageLabel } from '../constants/monacoLanguageLabels';
 import { languageCategories } from '../constants/languageCategories';
 import type { Step } from '../types';
+import { useHighlight } from '../hooks/useHighlight';
 
 const DEFAULT_STEPS: Step[] = [
     { id: 1, title: 'Étape 1', code: `class User {\n  constructor(name) {\n    this.name = name;\n  }\n}` },
@@ -20,10 +21,7 @@ const CodeStepsAnimator = () => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     const previewRef = useRef<HTMLElement>(null);
-    const hljsRef = useRef<any>(null);
     const intervalRef = useRef<number | null>(null);
-
-    const [isHighlightReady, setIsHighlightReady] = useState(false);
 
     const DEFAULT_LANGUAGE: MonacoLanguage = 'java';
     const getCategoryOfLanguage = (lang: MonacoLanguage): keyof typeof languageCategories => {
@@ -40,39 +38,13 @@ const CodeStepsAnimator = () => {
         getCategoryOfLanguage(DEFAULT_LANGUAGE)
     );
 
-    // Loading Highlight.js dynamiquement
-    useEffect(() => {
-        const loadHighlightJS = () => {
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
-            script.onload = () => {
-                hljsRef.current = window.hljs;
-                setIsHighlightReady(true);
-            };
-            document.head.appendChild(script);
-
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css';
-            document.head.appendChild(link);
-        };
-
-        loadHighlightJS();
-    }, []);
-
-    const highlightCode = () => {
-        if (hljsRef.current && previewRef.current) {
-            previewRef.current.removeAttribute('data-highlighted');
-            previewRef.current.className = `language-${language}`;
-            hljsRef.current.highlightElement(previewRef.current);
-        }
-    };
+    const { highlight, ready: isHighlightReady } = useHighlight(language);
 
     useEffect(() => {
-        if (isHighlightReady) {
-            highlightCode();
+        if (isHighlightReady && previewRef.current) {
+            highlight(previewRef.current);
         }
-    }, [isHighlightReady, currentStep, language]);
+    }, [isHighlightReady, currentStep, highlight]);
 
     const playAnimation = () => {
         if (steps.length <= 1 || isPlaying) return;
