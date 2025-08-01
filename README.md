@@ -54,7 +54,7 @@
 > Contributions are welcome! Feel free to open issues or pull requests to :
 >
 > * Add export options (GIF, video, image sequences) 📹
-> * mprove the UI and overall user experience ✨
+> * Improve the UI and overall user experience ✨
 > * Expand support for new languages or themes 🛠️
 
 ## 📜 License
