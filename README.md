@@ -1,54 +1,63 @@
-# React + TypeScript + Vite
+# 🚀 Code Journey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎬 Présentation
 
-Currently, two official plugins are available:
+**Code Journey** is **React + TypeScript** tool that lets you easily create multi-step code animations to enhance your technical presentations. The goal of this project is to break down a code snipper into multiple steps and animate those steps to visually highlight changes, additions, or refactorings in a progressive and engaging way.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 💡 **Project origin :**
+> When preparing technical slides, it can be tricky to clearly show how a piece of code evolves. Code Journey solves this by providing a dynamic, step-by-step preeiw that guides your audience through th **journey** of the code -- from the initial version to the final result.
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* 🎨 **Syntax highlighting** powered by Highlight.js
+* 🔄 **Auto-play** with **Play/Pause** controls
+* ➕ **Add** and 🗑️ **Remove** code steps dynamically
+* ✏️ **Live editing**of the code for each step
+* 🌐 **Language selection** from a wide list supported by Monaco Editor
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Installation & Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repository :
+  
+```bash
+   git clone https://github.com/Pitchouneee/code-journey.git
+   cd code-journey
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Install dependencies : 
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+```bash
+   npm install
+   ```
+
+3. Start the development server :
+
+```bash
+   npm run dev
+   ```
+
+4. Open your browser at `http://localhost:5173` 🌐
+
+## 🚀 How to use
+
+* ▶️ **Play / Pause :** Start or pause the step-by-step animation
+* ➕ **Add Step :** Create a new step with default code
+* 🖊️ **Edit :** Click on a step to edit its code
+* 🌐 **Select language :** Choose a category and a language to match your syntax highlighting
+
+## 📈 Roadmap & Contributions
+
+* ✅ Step-by-step animation
+* ✅  Language selection and syntax highlighting
+* ❌ **Export animation output** (coming soon: GIF, video, sequential images)
+
+> Contributions are welcome! Feel free to open issues or pull requests to :
+>
+> * Add export options (GIF, video, image sequences) 📹
+> * mprove the UI and overall user experience ✨
+> * Expand support for new languages or themes 🛠️
+
+## 📜 License
+
+This project is licensed under the [MIT License](./LICENSE).  
+Feel free to use, modify, and distribute it as you wish.
