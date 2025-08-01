@@ -1,6 +1,6 @@
 # 🚀 Code Journey
 
-## 🎬 Présentation
+## 🎬 Presentation
 
 **Code Journey** is **React + TypeScript** tool that lets you easily create multi-step code animations to enhance your technical presentations. The goal of this project is to break down a code snipper into multiple steps and animate those steps to visually highlight changes, additions, or refactorings in a progressive and engaging way.
 
